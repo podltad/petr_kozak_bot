@@ -1,0 +1,136 @@
+:root {
+    --background-color: white;
+    --text-color: black;
+    --cell-color: white;
+    --grid-line-color: #ddd;
+}
+[data-theme="dark"] {
+    --background-color: #121212;
+    --text-color: white;
+    --cell-color: #333;
+    --grid-line-color: #555;
+}
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 100px;
+    margin: 5px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow: hidden;
+}
+#instructions {
+    width: 280px;
+    text-align: left;
+}
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(10, 50px);
+    grid-template-rows: repeat(10, 50px);
+    gap: 1px;
+    background-color: var(--grid-line-color);
+    margin-bottom: 20px;
+}
+.cell {
+    width: 50px;
+    height: 50px;
+    background-color: var(--cell-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--grid-line-color);
+    position: relative;
+}
+.Peta {
+    background-image: url('https://media.licdn.com/dms/image/v2/C5603AQG0CuKlS3xA1w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1516934452013?e=2147483647&v=beta&t=fnzH1TA0G_vqLVCS64dsnE1D0XmkjohnNLgMeakyaj4');
+    background-size: cover;
+    transform: scaleX(-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+}
+.Peta[data-direction="0"] {
+    transform: rotate(0deg) scaleX(-1);
+}
+.Peta[data-direction="1"] {
+    transform: rotate(90deg) scaleX(-1);
+}
+.Peta[data-direction="2"] {
+    transform: rotate(180deg) scaleX(-1);
+}
+.Peta[data-direction="3"] {
+    transform: rotate(270deg) scaleX(-1);
+}
+.item {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.cell:not(.Peta) .item {
+    opacity: 1;
+}
+#command-area {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 5px;
+}
+#inventory {
+    margin-right: 20px;
+    text-align: left;
+}
+textarea {
+    width: 300px;
+    height: 150px;
+    background-color: var(--cell-color);
+    color: var(--text-color);
+    border: 1px solid var(--grid-line-color);
+    margin-right: 10px;
+}
+button {
+    padding: 10px 20px;
+    background-color: var(--cell-color);
+    color: var(--text-color);
+    border: 1px solid var(--grid-line-color);
+}
+#theme-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 2em;
+}
+h1 {
+    margin-bottom: 5px;
+}
+#shout {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1.5em;
+    text-align: center;
+    z-index: 1000;
+}

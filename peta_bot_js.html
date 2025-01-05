@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Péťa Bot (kafíčkové monstrum)</title>
+    <link rel="stylesheet" href="peta_bot_js.css">
+</head>
+<body>
+    <div id="instructions">
+        <h2>Návod/Legenda</h2>
+        <p>Péťa je bot, který se pohybuje po herním poli o velikosti 10x10. Můžete mu zadávat příkazy, které vykoná.</p>
+        <ul>
+            <li><strong>KROK [číslo]</strong> - Péťa se posune po jednom políčku směrem, kam je otočen. Pokud číslo není zadáno, Péťa se posune o jedno políčko.</li>
+            <li><strong>VLEVOBOK [číslo]</strong> - Péťa se otočí doleva o 90 stupňů. Pokud je číslo zadáno, otočí se tolikrát.</li>
+            <li><strong>POLOZ [symbol]</strong> - Na aktuální pozici Péťi se položí zadaný symbol.</li>
+            <li><strong>SKOK [číslo]</strong> - Péťa skočí o zadaný počet políček ve směru, kterým je otočen.</li>
+            <li><strong>SEBRAT [symbol]</strong> - Péťa sebere předmět na aktuálním poli.</li>
+            <li><strong>RESET</strong> - Herní pole se vyčistí a Péťa se vrátí na výchozí pozici v levém horním rohu a dívá se doprava.</li>
+        </ul>
+        <p>Příkazy zadávejte do textového pole, každý na nový řádek nebo oddělený čárkou. Poté stiskněte tlačítko <strong>Spustit</strong>.</p>
+        <p>Příklady příkazů:</p>
+        <pre>
+KROK 5 
+POLOZ A 
+SKOK 3
+POLOZ KAFE
+KROK 2
+VLEVOBOK 2
+KROK
+SEBRAT
+KROK 2
+        </pre>
+    </div>
+    <div id="game-container">
+        <div id="theme-toggle">🌙</div>
+        <h1>Péťa Bot (kafíčkové monstrum)</h1>
+        <div id="game-board"></div>
+        <div id="command-area">
+            <div id="inventory">
+                <h3>Inventář</h3>
+                <ul id="inventory-list"></ul>
+            </div>
+            <textarea id="commands" placeholder="Zadejte příkazy pro Petra..."></textarea>
+            <button id="execute">Spustit</button>
+        </div>
+        <div id="shout">Sakra už potřebuju kafe!</div>
+    </div>
+    <script src="peta_bot_js.js"></script>
+</body>
+</html>
